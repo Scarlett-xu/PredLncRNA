@@ -1,0 +1,17 @@
+{% import 'macro' as macro %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{ chart.page_title }}</title>
+    {{ macro.render_chart_dependencies(chart) }}
+</head>
+
+<body>
+    <!-- <p>天津内容</p> -->
+    {{ macro.render_chart_content(chart) }}
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+选择模型：lgc
+无物种选择
+一共52条预测数据。
+文件格式正确，开始预测。
+Input: /mnt/xxr/predpackage/inputfiles/c73cbd64-d91c-11ec-a6a6-0242ac110002
+Output: /mnt/xxr/predpackage/result/c73cbd64-d91c-11ec-a6a6-0242ac110002
+Scan ORF ...
+Done
+Computation time 0.0502068996429 senconds
+The total transcripts:52
+The number of lncRNAs:48
+The proportion of lncRNAs:92.308%
+The number of pcRNAs:5
+The proportion of pcRNAs:9.615%

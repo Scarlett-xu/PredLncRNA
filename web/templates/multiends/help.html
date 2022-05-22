@@ -1,0 +1,425 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{% static 'css/table.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/markdown.css' %}" type="text/css">
+    <link rel="shortcut icon" href="{%static 'image/predlncrna.ico' %}" />
+    <title>predlncrna.cn</title>
+
+</head>
+
+
+<body>
+    <!-- 导航 -->
+
+    <nav class="navbar navbar-expand-md bg-nav navbar-dark">
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="/static/image/logo.png" class="img-responsive" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- home ------ ---- ---- ---- -->
+                <li class="nav-item">
+                    <a class="nav-link nav-font " href="/">Home</a>
+                </li>
+
+                <!-- run ------ ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link nav-font " href="/run">Run</a>
+                </li>
+
+                <!-- details ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link nav-font dropdown-toggle" data-bs-toggle="dropdown">Details</a>
+                    <div class="dropdown-menu mydropdown">
+                        <a href="/details#database" class="dropdown-item">Database</a>
+                        <a href="/details#features" class="dropdown-item ">Features</a>
+                        <a href="/details#models" class="dropdown-item ">Models</a>
+                    </div>
+                </li>
+                <!-- help ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-font active" href="/help">Help</a>
+                </li>
+                <!-- about ---- ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link nav-font" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row justify-content-between">
+        <div class="col-md-1"></div>
+        <div class="col-md-3 mypage" style="padding:2% 0 2% 2% ;">
+
+            <p class="mytitle">
+                <img src="https://predlncrna.oss-cn-shanghai.aliyuncs.com/data-download.png"
+                    style="max-width:9%; height:auto;" class="img-responsive " alt="background">
+                DOWNLOADS
+            </p>
+            <hr>
+            <p class="mytitle">1. Use of prediction</p>
+            <p style="font-family:'Arial';line-height:3;">
+
+                <img src="/static/image/home/liebiaoyedizhi.png" style="max-width:10%; height:auto;"
+                    class="img-responsive" alt="briefintro">
+                <mark>1. Upload input file</mark>
+                <br>
+                <img src="/static/image/home/liebiaoyedizhi.png" style="max-width:10%; height:auto;"
+                    class="img-responsive" alt="briefintro">
+                <mark>2. Select tools and species</mark><br>
+                <img src="/static/image/home/liebiaoyedizhi.png" style="max-width:10%; height:auto;"
+                    class="img-responsive" alt="briefintro">
+                <mark>3. predict and copy the taskid</mark><br>
+                <img src="/static/image/home/liebiaoyedizhi.png" style="max-width:10%; height:auto;"
+                    class="img-responsive" alt="briefintro">
+                <mark>4. input the task id and get results</mark><br>
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-striped " id="table1" style="word-break:break-all; word-wrap:break-all;">
+                    <caption>The error types can be found in log files.
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Error types</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Non-fasta data format file</td>
+                            <td>The data format of input data is not correct. Only the fasta format is supported.</td>
+                        </tr>
+                        <tr>
+                            <td>Prediction Error</td>
+                            <td>The prediction process is faulty so the result file is not genarated.</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <p class="mytitle">2. Downloads of tools</p>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="http://cpc2.gao-lab.org/data/CPC2-beta.tar.gz" target="_blank" id="cardlink">CPC2</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="http://www.rnabinding.com/CPPred/ target=" _blank"" id="cardlink">CPPred</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="http://cqb.pku.edu.cn/ZhuLab/lncadeep/example/" id="cardlink"
+                            target="_blank">LncAdeep</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="https://sourceforge.net/projects/plek/files/" id="cardlink">PLEK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="https://github.com/hugowschneider/longdist.py" id="cardlink"
+                            target="_blank">longdist</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="https://github.com/chenxgscuec/CPESLDI" id="cardlink">CPESLDI</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="https://github.com/yuuuuzhang/DeepCPP" id="cardlink" target="_blank">DeepCPP</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="http://bigd.big.ac.cn/biocode/tools/4/releases/1.0/file/download?filename=lgc-1.0.tar.gz"
+                            id="cardlink">lgc</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="https://github.com/BioMedicalBigDataMiningLab/PredLnc-GFStack
+                        " id="cardlink">PredLnc-GFStack</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="https://github.com/cran/LncFinder" id="cardlink">lncFinder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="https://git.acwing.com/scarlettxu/lncrnawebtool" id="cardlink">Original Code of
+                            website</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="container downloadcard" shadow>
+                        <a href="http://www.rnabinding.com/CPPred/" id="cardlink">Original Code of predlncrna</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+
+            <p class="ref">
+                If you use PredlncRNA, please cite:<br>
+                Xinran Xu, Shuai Liu, Zhihao Yang, Xiaohan Zhao, Yaozhen Deng, Guangzhan Zhang, Jian Pang,
+                Chengshuai Zhao, Wen Zhang, A systematic review of computational methods for predicting long
+                noncoding RNAs, Briefings in Functional Genomics, Volume 20, Issue 3, May 2021, Pages 162–173,
+                https://doi.org/10.1093/bfgp/elab016
+            </p>
+
+
+            <hr>
+
+        </div>
+        <div class="col-md-7 mypage" style="padding:2%;">
+            <p class="mytitle">
+                <img src="https://predlncrna.oss-cn-shanghai.aliyuncs.com/cankaowenjian.png"
+                    style="max-width:4%; height:auto;" class="img-responsive " alt="background">
+                REFERENCE DATAFEAME
+            </p>
+
+            <!-- <p>下图展示了特征提取的分类占比以及特征词云</p>
+            <img src="https://predlncrna.oss-cn-shanghai.aliyuncs.com/feature" style="max-width:80%; height:auto;"
+                class="img-responsive " alt="background"></span>-->
+            <hr>
+            <!-- <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Dropdown button
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </div> -->
+            <!-- <div class="dropdown">
+                <a href="#" class="nav-link nav-font dropdown-toggle" data-bs-toggle="dropdown">Details</a>
+                <div class="dropdown-menu mydropdown">
+                    <a href="/details#database" class="dropdown-item">Database</a>
+                    <a href="/details#features" class="dropdown-item ">Features</a>
+                    <a href="/details#models" class="dropdown-item ">Models</a>
+                </div>
+            </div> -->
+
+            <!-- <h2>不同工具的耗时</h2> -->
+            <!-- <p><strong>注意：</strong> 使用 <strong>data-parent</strong> 属性来确保所有的折叠元素在指定的父元素下，这样就能实现在一个折叠选项显示时其他选项就隐藏。
+                </p> -->
+            <p>
+                The cost time of different models (based on different NUMBERS of samples)</p>
+
+            <div id="accordion" style="margin:0 ;">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn" href="/help#collapse1" data-bs-toggle="collapse"
+                            style="font-weight:bold;color: rgb(189, 110, 41);">
+                            Cost time of All models
+                        </a>
+                    </div>
+                    <div id="collapse1" class="collapse show " data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a href="/help#collapse2" class="collapsed btn" data-bs-toggle="collapse"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of CNCI
+                        </a>
+                    </div>
+                    <div id="collapse2" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            cnci
+                            <canvas id="c_cnci"></canvas>
+                            <!-- <canvas id="myChart2" width="100" height="100"></canvas> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class=" btn" data-bs-toggle="collapse" href="#collapseThree"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of PLEK
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse " data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="c_plek"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class=" btn" data-bs-toggle="collapse" href="#collapse9"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of CPC2
+                        </a>
+                    </div>
+                    <div id="collapse9" class="collapse " data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="c_cpc2"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class=" btn" data-bs-toggle="collapse" href="#collapsefour"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of CPPred
+                        </a>
+                    </div>
+                    <div id="collapsefour" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="c_cppred"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class=" btn" data-bs-toggle="collapse" href="#collapsefive"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of lgc
+                        </a>
+                    </div>
+                    <div id="collapsefive" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="c_lgc"></canvas>
+                            <!-- <canvas id="myChart2" width="100" height="100"></canvas> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class=" btn" data-bs-toggle="collapse" href="#collapsesix"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of CPAT
+                        </a>
+                    </div>
+                    <div id="collapsesix" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="c_cpat"></canvas>
+                            <!-- <canvas id="myChart2" width="100" height="100"></canvas> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class=" btn" data-bs-toggle="collapse" href="#collapseseven"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of LncADeep
+                        </a>
+                    </div>
+                    <div id="collapseseven" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="c_lncadeep"></canvas>
+                            <!-- <canvas id="myChart2" width="100" height="100"></canvas> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class=" btn" data-bs-toggle="collapse" href="#collapseeight"
+                            style="font-weight:bold;color: rgb(41, 115, 189);">
+                            Cost time of GFStack
+                        </a>
+                    </div>
+                    <div id="collapseeight" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <canvas id="c_gfstack"></canvas>
+                            <!-- <canvas id="myChart2" width="100" height="100"></canvas> -->
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6"
+                    style="padding:1;border:2px solid rgb(223, 223, 223);background-color: rgb(247, 247, 247);">
+                    <!-- <p> The proformance of predict tools</p> -->
+                    <p style="text-align: center; padding:4% 0 0 0">
+                        The performance of tools on human dataset
+                    </p>
+                    <canvas id="myChart2" width="100%" height="100%"></canvas>
+                </div>
+                <div class="col-md-6"
+                    style="padding:1;border:2px solid rgb(223, 223, 223);background-color: rgb(247, 247, 247);">
+                    <p style="text-align: center; padding:4% 0 0 0">
+                        The performance of tools on mouse dataset
+                    </p>
+                    <canvas id="myChart3" width="100%" height="100%"></canvas>
+                </div>
+            </div>
+
+            <!-- <canvas id="myChart" width="400" height="200"></canvas> -->
+
+            <!-- <canvas id="myChart2" width="100" height="100"></canvas> -->
+
+            <!-- <canvas id="myChart3" width="100" height="100"></canvas> -->
+            <!-- <div class="row justify-content-between">
+               
+                
+            </div> -->
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+
+    <footer></footer>
+
+
+</body>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<!-- <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> -->
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script> -->
+<script type="text/javascript">
+    $('footer').load("{% static 'footer.html' %}");
+</script>
+
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script type=" text/javascript" src="{% static 'js/web.js' %}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+<script type="text/javascript" src="{% static 'js/chart.js' %}"></script>
+
+</html>

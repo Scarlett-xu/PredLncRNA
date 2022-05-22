@@ -1,0 +1,5 @@
+文件夹已存在：2022-04-09
+python2.7 /home/xxr/lncRNAwebtool/Predpackage/CNCI-master/CNCI.py -f test.fa -o /home/xxr/lncRNAwebtool/Predpackage/result/2022-04-09 -m ve -p 8
+/home/xxr/lncRNAwebtool/Predpackage/CNCI-master
+CNCI classification were completely done!
+155.107448 second for 200 transcript's computation.

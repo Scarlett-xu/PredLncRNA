@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="baidu-site-verification" content="code-0kgUqI6lx4" />
+    <meta charset="UTF-8">
+    <title>predlncrna.cn ———— 长链非编码RNA预测综合平台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="lncrna, prediction, identification, mechine learning">
+    <meta name="description" content="一个长链非编码RNA预测平台，提供lncRNA预测、分析、相关文献抓取。">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="shortcut icon" href="{%static 'image/predlncrna.ico' %}" />
+</head>
+
+<body>
+
+    <!-- 导航 ------ ---- ---- ---- ---- ---- ---- ---- ---->
+
+    <nav class="navbar navbar-expand-md navbar-dark">
+
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="/static/image/logo.png" class="img-responsive" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- home ------ ---- ---- ---- -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+
+                <!-- run ------ ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link" href="/run">Run</a>
+                </li>
+
+                <!-- details ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link nav-font dropdown-toggle" data-bs-toggle="dropdown">Details</a>
+                    <div class="dropdown-menu mydropdown">
+                        <a href="/details#database" class="dropdown-item">Database</a>
+                        <a href="/details#features" class="dropdown-item ">Features</a>
+                        <a href="/details#models" class="dropdown-item ">Models</a>
+                    </div>
+                </li>
+                <!-- help ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-font" href="/help">Help</a>
+                </li>
+                <!-- about ---- ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 介绍大图 -->
+    <div class="row justify-content-between" style="padding:0">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel" data-interval="500">
+
+                <!-- 指示符 -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                </div>
+
+                <!-- 轮播图片 -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://predlncrna.oss-cn-shanghai.aliyuncs.com/imgintro.jpg" class="d-block"
+                            style="width:100%">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="
+                        https://predlncrna.oss-cn-shanghai.aliyuncs.com/imgintro2.jpg" class="d-block"
+                            style="width:100%">
+                    </div>
+                </div>
+
+                <!-- 左右切换按钮 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+            <!-- <img class="img-fluid" src="/static/image/imgintro.jpg" alt="introimg"> -->
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    <!-- timeline -->
+    <!-- <hr> -->
+    <div class="row justify-content-between">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-7">
+            <div>
+                <a href="http://predlncrna.cn/?reverse=0&page={{ page.number  }}" style="text-decoration: none;"
+                    class="ranktimeline">
+
+                    <img src="/static/image/home/reverse.png" style="max-width:4%; height:auto;" class="img-responsive"
+                        alt="reverse">
+                    LATEST
+                </a>
+                <a href="http://predlncrna.cn/?reverse=1&page={{ page.number  }}" style="text-decoration: none;"
+                    class="ranktimeline">
+
+                    <img src="/static/image/home/reverse.png" style="max-width:4%; height:auto;" class="img-responsive"
+                        alt="reverse">
+                    OLDEST
+                </a>
+            </div>
+            {% for i in page %}
+
+            <div class="row" style="padding:0">
+                <div class="col-md-2 d-flex justify-content-center align-items-center app-line">
+                    <span class="badge rounded-pill" id="publishdate">{{ i.publishdate }}</span>
+                </div>
+                <div class="col-md-10">
+                    <div class="card rounded-0 border-0 shadow my-4">
+                        <a href="
+                       {{ i.link }}" target="_blank" id="paperlist">
+                            <div class="card-body" id="papercard">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img src=" https://predlncrna.oss-cn-shanghai.aliyuncs.com/paper/{{ i.pid }}"
+                                            style="max-width:100%; height:auto;" class="img-responsive" alt="lgc">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h5 class="card-title">{{ i.name }}</h5>
+                                        <p class="card-text">{{ i.describtion }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div>
+                <p style="text-align: center;">
+                    {% if page.number == 1 %}
+                    <span class="currentpage"> &lt;&lt; 1</span>
+                    <a class="otherpage" href="http://predlncrna.cn/?reverse={{reverse}}&page=2">2</a>
+                    <a class="otherpage" href="http://predlncrna.cn/?reverse={{reverse}}&page=3">3 &gt;&gt; </a>
+                    {% elif page.number == 2 %}
+                    <a class="otherpage" href="http://predlncrna.cn/?reverse={{reverse}}&page=1"> &lt;&lt; 1</a>
+                    <span class="currentpage">2</span>
+                    <a class="otherpage" href="http://predlncrna.cn/?reverse={{reverse}}&page=3">3 &gt;&gt;</a>
+                    {% else %}
+                    <a class="otherpage" href="http://predlncrna.cn/?reverse={{reverse}}&page=1"> &lt;&lt; 1</a>
+                    <a class="otherpage" href="http://predlncrna.cn/?reverse={{reverse}}&page=2">2</a>
+                    <span class="currentpage">3 &gt;&gt; </span>
+                </p>
+
+
+
+                {% endif %}
+
+
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="shadow mypage" id="mylistgroup" style="margin: 30px 0; padding:10px;">
+                <p class="mytitle">
+                    <img src="/static/image/home/briefintro.png" style="max-width:8%; height:auto;"
+                        class="img-responsive" alt="briefintro">
+                    INTERSPACE
+                </p>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="col">
+                            <div class="row-md-8 d-flex justify-content-center align-items-center"
+                                style="padding: 10%;">
+                                <img src="/static/image/home/background.png" style="max-width:66%; height:auto;"
+                                    class="img-responsive" alt="background">
+                            </div>
+                            <div class="row-md-8 d-flex justify-content-center align-items-center">
+                                <a href="/background" class="linktext">Background</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="col">
+                            <div class="row-md-8 d-flex justify-content-center align-items-center"
+                                style="padding: 10%;">
+                                <img src="/static/image/home/github.png" style="max-width:66%; height:auto;"
+                                    class="img-responsive" alt="background">
+                            </div>
+                            <div class="row-md-8 d-flex justify-content-center align-items-center">
+                                <a href="https://github.com/Scarlett-xu/predLncRNA" target="_blank"
+                                    class="linktext">Github</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="col">
+                            <div class="row-md-8 d-flex justify-content-center align-items-center"
+                                style="padding: 10%;">
+                                <img src="/static/image/home/contentus.png" style="max-width:66%; height:auto;"
+                                    class="img-responsive" alt="background">
+                            </div>
+                            <div class="row-md-8 d-flex justify-content-center align-items-center">
+                                <div class="row-md-8 d-flex justify-content-center align-items-center">
+                                    <a href="mailto:xinranxu@webmail.hzau.edu.cn" target="_blank"
+                                        class="linktext">Contact Us</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- hottags -->
+            <div class="shadow mypage" id="mylistgroup" style="margin: 30px 0; padding:10px;">
+                <p class="mytitle">
+                    <img src="/static/image/home/cloud.png" style="max-width:8%; height:auto;" class="img-responsive"
+                        alt="cloud">
+                    TAGS
+                </p>
+                <hr>
+                {% for i in tags %}
+                <span class="{{ i.id }}">{{ i.tag }}</span>
+                {% endfor %}
+            </div>
+            <div class="shadow mypage" id="mylistgroup" style="margin: 30px 0; padding:10px;">
+                <p class="mytitle">
+                    <img src="/static/image/home/news.png" style="max-width:8%; height:auto;" class="img-responsive"
+                        alt="cloud">
+                    NEWS <span class="badge rounded-pill" style="background-color:rgb(186, 82, 58);">Latest</span>
+                </p>
+                <hr>
+                {% for latest_paper in latest_papers %}
+                <div class="row" style="padding: 5%;">
+                    <!-- <p>{{ latest_papers|length }}</p> -->
+                    {% for j in latest_paper %}
+                    <div class="col-md-6 d-flex newpaper ">
+                        <!-- <div class=""> -->
+                        <a href="{{ j.paperurl }}" target="_blank"><img src="{{ j.imgsrc }}" style="width: 100%;
+                                height:7vw;" class="img-responsive" alt="deeplnc"></a>
+                        <span class="tooltiptext">{{ j.title }}</span>
+                        <!-- </div> -->
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <hr>
+                <p style="color:rgb(124, 128, 131); font-size: small;">
+                    update time: {{ update_time }} | <a href="/readmore">read more >></a>
+                    <!-- <img src="/static/image/home/more.png" style="max-width:5%; height:auto;"
+                        class="img-responsive " alt="background"> -->
+                </p>
+            </div>
+        </div>
+
+        <!-- 间隙 -->
+        <div class="col-sm-1"></div>
+    </div>
+    <footer></footer>
+
+</body>
+
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- <script src="{% static 'js/web.js' %}"></script> -->
+<script type="text/javascript">
+    $('footer').load("{% static 'footer.html' %}");
+</script>
+
+</html>

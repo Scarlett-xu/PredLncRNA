@@ -1,0 +1,41 @@
+h1,
+h2 {
+    font-family: PingFangSC-Semibold, sans-serif;
+    line-height: 1.5;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: PingFangSC-Medium, sans-serif;
+    line-height: 1.5;
+}
+
+p {
+    /* font-family: PingFangSC-Medium, sans-serif; */
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+
+    font: Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+
+    line-height: 2;
+}
+
+.ref {
+    border-left: 4px solid rgb(234, 179, 131);
+    background-color: rgba(234, 179, 131, 0.261);
+    /* margin:5px */
+    padding: 10px;
+    /* font-family: PingFangSC-Light, sans-serif; */
+    line-height: 1.5;
+}
+
+.note {
+    border-top: 4px solid rgb(62, 97, 159);
+    background-color: rgba(141, 161, 196, 0.414);
+    color: rgb(0, 0, 0);
+    /* margin:5px */
+    padding: 10px;
+    font-family: PingFangSC-Medium, sans-serif;
+    line-height: 1.5;
+}

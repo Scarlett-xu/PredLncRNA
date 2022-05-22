@@ -1,0 +1,38 @@
+#table1 thead,
+#table1 tr {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(163, 182, 218);
+}
+
+#table1 {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(163, 182, 218);
+}
+
+/* Padding and font style */
+#table1 td,
+#table1 th {
+    padding: 5px 10px;
+    font-size: 15px;
+    font-family: Verdana;
+    color: rgb(91, 111, 149);
+}
+
+#table1 a {
+    color: rgb(91, 111, 149)
+}
+
+#table1 a:hover {
+    color: rgba(145, 7, 7, 0.561);
+}
+
+/* Alternating background colors */
+#table1 tr:nth-child(even) {
+    background: rgba(163, 182, 218, 0.685)
+}
+
+#table tr:nth-child(odd) {
+    background: #FFF
+}

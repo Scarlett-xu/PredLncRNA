@@ -1,0 +1,77 @@
+[
+    {
+        "modelID": 0,
+        "name": "Vertebrate",
+        "ProSort": 1
+    },
+    {
+        "modelID": 0,
+        "name": "Plant",
+        "ProSort": 2
+    },
+    {
+        "modelID": 5,
+        "name": "Human",
+        "ProSort": 3
+    },
+    {
+        "modelID": 5,
+        "name": "Intergrated",
+        "ProSort": 3
+    },
+    {
+        "modelID": 6,
+        "name": "Human",
+        "ProSort": 3
+    },
+    {
+        "modelID": 6,
+        "name": "Mouse",
+        "ProSort": 3
+    },
+    {
+        "modelID": 7,
+        "name": "Human",
+        "ProSort": 1
+    },
+    {
+        "modelID": 7,
+        "name": "Mouse",
+        "ProSort": 2
+    },
+    {
+        "modelID": 7,
+        "name": "All",
+        "ProSort": 3
+    },
+    {
+        "modelID": 8,
+        "name": "Human",
+        "ProSort": 1
+    },
+    {
+        "modelID": 8,
+        "name": "Vertebrate",
+        "ProSort": 2
+    },
+    {
+        "modelID": 8,
+        "name": "Insect",
+        "ProSort": 3
+    },
+    {
+        "modelID": 9,
+        "name": "Human",
+        "ProSort": 1
+    },
+    {
+        "modelID": 9,
+        "name": "Vertebrate",
+        "ProSort": 2
+    },
+    {
+        "modelID": 9,
+        "name": "Insect",
+        "ProSort": 3
+    }
+]

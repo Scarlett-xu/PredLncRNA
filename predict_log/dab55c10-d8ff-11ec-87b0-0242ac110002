@@ -1,0 +1,14 @@
+选择模型：CNCI
+选择物种：Vertebrate
+一共191条预测数据。
+文件格式正确，开始预测。
+python2 /mnt/xxr/predpackage/models/cnci/CNCI.py -f /mnt/xxr/predpackage/inputfiles/dab55c10-d8ff-11ec-87b0-0242ac110002 -o /mnt/xxr/predpackage/result/dab55c10-d8ff-11ec-87b0-0242ac110002 -m ve -p 12
+/mnt/xxr/predpackage/models/cnci
+CNCI classification were completely done!
+20.896110 second for 191 transcript's computation.
+have moved! 
+The total transcripts:192
+The number of lncRNAs:188
+The proportion of lncRNAs:0.979%
+The number of pcRNAs:3
+The proportion of pcRNAs:0.016%

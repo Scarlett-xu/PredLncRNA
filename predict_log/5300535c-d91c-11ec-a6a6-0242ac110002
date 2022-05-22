@@ -1,0 +1,14 @@
+选择模型：CNCI
+选择物种：Plant
+一共52条预测数据。
+文件格式正确，开始预测。
+python2 /mnt/xxr/predpackage/models/cnci/CNCI.py -f /mnt/xxr/predpackage/inputfiles/5300535c-d91c-11ec-a6a6-0242ac110002 -o /mnt/xxr/predpackage/result/5300535c-d91c-11ec-a6a6-0242ac110002 -m pl -p 12
+/mnt/xxr/predpackage/models/cnci
+CNCI classification were completely done!
+5.144836 second for 52 transcript's computation.
+have moved! 
+The total transcripts:52
+The number of lncRNAs:26
+The proportion of lncRNAs:50.000%
+The number of pcRNAs:26
+The proportion of pcRNAs:50.000%

@@ -1,0 +1,791 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}" type="text/css">
+    <link rel="shortcut icon" href="{%static 'image/predlncrna.ico' %}" />
+    <title>predlncrna.cn</title>
+
+</head>
+
+<style>
+    .scrollspy-example {
+        position: relative;
+        height: 200px;
+        margin-top: .5rem;
+        overflow: auto;
+    }
+</style>
+
+<body>
+    <!-- 导航 -->
+
+
+    <nav class="navbar navbar-fixed-top navbar-expand-md bg-nav navbar-dark">
+
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="/static/image/logo.png" class="img-responsive" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- home ------ ---- ---- ---- -->
+                <li class="nav-item">
+                    <a class="nav-link nav-font " href="/">Home</a>
+                </li>
+
+                <!-- run ------ ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link nav-font " href="/run">Run</a>
+                </li>
+
+                <!-- details ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a href="/details" class="nav-link nav-font active dropdown-toggle"
+                        data-bs-toggle="dropdown">Details</a>
+                    <div class="dropdown-menu mydropdown">
+                        <a href="/details#database" class="dropdown-item">Database</a>
+                        <a href="/details#features" class="dropdown-item ">Features</a>
+                        <a href="/details#models" class="dropdown-item ">Models</a>
+                    </div>
+                </li>
+                <!-- help ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-font" href="/help">Help</a>
+                </li>
+                <!-- about ---- ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link nav-font" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-1">
+            <div id="list-example" class="list-group" style="position: fixed;">
+                <p>
+                    <img src="/static/image/details/guide.png" style="max-width: 20px;" alt="guide">
+                    Guide
+                </p>
+                <a class="list-group-item list-group-item-action" href="#list-item-1">Databases</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-2">Features</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-3">Models</a>
+            </div>
+        </div>
+        <div class="col-9">
+            <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabindex="0">
+
+                <div id="databases">
+                    <p class="mytitle" id="list-item-1" style="padding-top:4% ;">
+                        Databases
+                    </p>
+                    <hr style="color:rgb(37, 64, 65);height:7px;width: 10em;margin: 0px;">
+                    <div class="table-responsive">
+                        <table class="table table-striped " id="table1"
+                            style="word-break:break-all; word-wrap:break-all;">
+                            <caption>The summary of data sources for the lncRNA prediction
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th>Database</th>
+                                    <th>Description</th>
+                                    <th>Institute</th>
+                                    <th>Version</th>
+                                    <th>Number of lncRNA</th>
+                                    <th>Spieces</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="https://www.ncbi.nlm.nih.gov/refseq/" target="_blank">RefSeq</a></td>
+                                    <td>The collection of genomic, transcript and protein sequence records</td>
+                                    <td>National Center for Biotechnology Information</td>
+                                    <td>Release 204 (01. 2021)</td>
+                                    <td>G:7849</td>
+                                    <td>10 255 diff. species (4384 animals, 5871 plants)</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://ensemblgenomes.org/" target="_blank">Ensembl
+                                            Genomes</a></td>
+                                    <td>An integrated genomic database including extensive genome-scale data</td>
+                                    <td>European Bioinformatics Institute</td>
+                                    <td>Release 48 (09. 2020)</td>
+                                    <td>G: 20 170</td>
+                                    <td>279 diff. species</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.gencodegenes.org/" target="_blank">GENCODE</a></td>
+                                    <td>A genomic database for identifying all gene features in the human and mouse
+                                        genome
+                                    </td>
+                                    <td>Wellcome Trust Sanger Institute</td>
+                                    <td>Human Release 36 (11. 2020)
+                                        Mouse Release M25 (04.2020)</td>
+                                    <td>G: 31 155
+                                        T: 67 590</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://www.cuilab.cn/lncrnadisease" target="_blank">LncRNADisease</a>
+                                    </td>
+                                    <td>Repository of lncRNAs–diseases associations and predictions</td>
+                                    <td>-</td>
+                                    <td>Version 2.0 (01.2019)</td>
+                                    <td>T: 914</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://genome.ucsc.edu/" target="_blank">UCSC Genome
+                                            Browser</a></td>
+                                    <td>A broad collection of vertebrate and model organism assemblies and annotations
+                                    </td>
+                                    <td>University of California Santa Cruz</td>
+                                    <td>2014 update</td>
+                                    <td>T: 48 438</td>
+                                    <td>109 diff. species</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://www.noncode.org" target="_blank">NONCODE</a>
+                                    </td>
+                                    <td>An integrative annotation of lncRNAs</td>
+                                    <td>-</td>
+                                    <td>Version 6.0</td>
+                                    <td>T: 644 510
+                                        G: 423 882</td>
+                                    <td>39 diff. species (16 animals, 23 plants)</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebi.ac.uk/" target="_blank">EMBL
+                                            Nucleotide Sequence</a>
+                                    </td>
+                                    <td>A comprehensive collection of publicly available nucleotide sequence and
+                                        annotation
+                                    </td>
+                                    <td>The European Molecular Biology Laboratory</td>
+                                    <td>Release 114 (12.2012)</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://rfam.org/" target="_blank">Rfam</a></td>
+                                    <td>A collection of RNA families</td>
+                                    <td>European Bioinformatics Institute</td>
+                                    <td>Version 14.4 (12.2020)</td>
+                                    <td>T: 8867</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://www.lncipedia.org" target="_blank">LNCipedia</a></td>
+                                    <td>A database for annotated human lncRNA transcript sequences and structures</td>
+                                    <td>Ghent University</td>
+                                    <td>Version 5.2 (08.2018)</td>
+                                    <td>T: 127 802
+                                        G: 56 946</td>
+                                    <td>46 diff. species</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://bigdata.ibp.ac.cn/npinter4" target="_blank">NPInter</a></td>
+                                    <td>Collection of the functional interaction lncRNA data</td>
+                                    <td>Key Laboratory of RNA Biology,Institute of Biophysics, CAS</td>
+                                    <td>Version 4.0 (10.2019)</td>
+                                    <td>-</td>
+                                    <td>35 diff. species</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="color: rgb(73, 73, 73); padding-bottom: 3%;"><mark>Note: Version indicates the latest
+                            release of
+                            the database until
+                            January
+                            2021. &quot–&quot notes
+                            the information
+                            is not provided in the database. T, transcript; G, gene; diff., different.</mark></p>
+                    <!-- ----Features------------------------------------------------------------- -->
+                </div>
+                <div id="features">
+                    <p class="mytitle" id="list-item-2" style="padding-top:4% ;">Features<br></p>
+                    <hr style="color:rgb(37, 64, 65);height:7px;width: 10em;margin: 0px;">
+                    <div class="table-responsive">
+                        <table class="table table-striped " style="word-break:break-all; word-wrap:break-all;"
+                            id="table1">
+                            <caption>The summary of features used for the lncRNA prediction</summary>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th colspan="2">Features</th>
+                                    <th>Dimension</th>
+                                    <th>Models</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="7">Codon-related features</td>
+                                    <td rowspan="6">STOP Codon based</td>
+                                    <td> STOP Codon Count</td>
+                                    <td>1</td>
+                                    <td>PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td>STOP Codon Std</td>
+                                    <td>1</td>
+                                    <td>lncRScan-SVM</td>
+                                </tr>
+                                <tr>
+                                    <td>STOP Codon Frequency</td>
+                                    <td>1</td>
+                                    <td>PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td>STOP Codon Frame Score</td>
+                                    <td>1</td>
+                                    <td>PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td>STOP Codon Frequency</td>
+                                    <td>1</td>
+                                    <td>PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td>Frame Score</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Fickett TESTCODE score</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>CPC2, CPPred, CPAT, lncScore, LncADeep,
+                                        PredLnc-GFStack, CPE-SLDI</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7">ORF-related features</td>
+                                    <td rowspan="2">ORF lengths</td>
+                                    <td>The 1st ORF length</td>
+                                    <td>1</td>
+                                    <td> iSeeRNA, CPC2, Longdist, CPPred, LGC, CPAT, lncScore, LncRNA-ID</td>
+                                </tr>
+                                <tr>
+                                    <td>The longest ORF length</td>
+                                    <td>1</td>
+                                    <td> LncRNApred, lncRNA-MFDL, lncRNAnet, LncADeep, CPE-SLDI</td>
+                                </tr>
+                                <tr>
+                                    <td>ORF coverage</td>
+                                    <td></td>
+                                    <td>2</td>
+                                    <td>CPC, CPPred, CPAT, lncScore, LncRNA-ID, FEELnc, lncRNAnet, LncADeep, CPE-SLDI
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ORF integrity</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>CPC, CPC2, CPPred, PredLnc-GFStack, CPE-SLDI</td>
+                                </tr>
+                                <tr>
+                                    <td>ORF frame score</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td>The entropy density profiles</td>
+                                    <td></td>
+                                    <td>16</td>
+                                    <td>LncADeep, PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td>(EDP) of ORF</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">GC-related features</td>
+                                    <td colspan="2">GC, GC1, GC2, GC3</td>
+                                    <td>1</td>
+                                    <td>iSeeRNA</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">GC frame score, GC1 frame score, GC2 frame score, GC3 frame score
+                                    </td>
+                                    <td>1</td>
+                                    <td> PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Untranslated regions (UTR) of GC content</td>
+                                    <td>2</td>
+                                    <td>LGC, lncScore, COME, LncADeep</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7">CDS-related features</td>
+                                    <td>CDS length</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>lncRScan-SVM</td>
+                                </tr>
+                                <tr>
+                                    <td>CDS percentage</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>lncRScan-SVM</td>
+                                </tr>
+                                <tr>
+                                    <td>CDS score</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>lncRScan-SVM</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">MLCDS-based features</td>
+                                    <td>The length of MLCDS</td>
+                                    <td>1</td>
+                                    <td>CNCI, lncRNA-MFDL</td>
+                                </tr>
+                                <tr>
+                                    <td>S-score of MLCDS</td>
+                                    <td>1</td>
+                                    <td>CNCI, lncRNA-MFDL</td>
+                                </tr>
+                                <tr>
+                                    <td>Length-percentage</td>
+                                    <td>1</td>
+                                    <td>CNCI, lncRNA-MFDL</td>
+                                </tr>
+                                <tr>
+                                    <td>Score distance</td>
+                                    <td>1</td>
+                                    <td>CNCI, lncRNA-MFDL</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="13">Transcript-related features</td>
+                                    <td>Transcript length</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>lncRScan-SVM</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Exon count and average exon length</td>
+                                    <td>1</td>
+                                    <td>lncRScan-SVM</td>
+                                </tr>
+                                <tr>
+                                    <td>k-mer</td>
+                                    <td></td>
+                                    <td>4k</td>
+                                    <td>PLEK, LncRNApred, FEELnc, lncRNA-MFDL, DeepLNC, PredLnc-GFStack</td>
+
+                                </tr>
+                                <tr>
+                                    <td>CTD</td>
+                                    <td></td>
+                                    <td>30</td>
+                                    <td>CPPred, CPE-SLDI</td>
+                                </tr>
+                                <tr>
+                                    <td>UTR coverage</td>
+                                    <td></td>
+                                    <td>2</td>
+                                    <td>LncADeep</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of hits</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>CPC</td>
+                                </tr>
+                                <tr>
+                                    <td>Hit score</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>CPC</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Signal-to-noise ratio (SNR)</td>
+                                    <td>1</td>
+                                    <td>LncRNApred, PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="5">Hexamer based</td>
+                                    <td>Hexamer score</td>
+                                    <td>1</td>
+                                    <td>CPPred, CPAT, lncScore, LncADeep, CPE-SLDI</td>
+                                </tr>
+                                <tr>
+                                    <td>Hexamer score distance</td>
+                                    <td>1</td>
+                                    <td>lncScore</td>
+                                </tr>
+                                <tr>
+                                    <td>Distance to lncRNA</td>
+                                    <td>1</td>
+                                    <td>LncFinder</td>
+                                </tr>
+                                <tr>
+                                    <td>Distance to protein-coding transcript</td>
+                                    <td>1</td>
+                                    <td>LncFinder</td>
+                                </tr>
+                                <tr>
+                                    <td>Distance ratio</td>
+                                    <td>1</td>
+                                    <td>LncFinder</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="11">Structure-related features</td>
+                                    <td colspan="2">Molecular weight (Mw)</td>
+                                    <td>1</td>
+                                    <td>PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Isoelectric point (pI)</td>
+                                    <td>1</td>
+                                    <td>CPC2</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">PI/Mw</td>
+                                    <td>1</td>
+                                    <td>CPPred</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">PI/Mw frame score</td>
+                                    <td>1</td>
+                                    <td>PredLnc-GFStack</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Gravy</td>
+                                    <td>1</td>
+                                    <td>CPPred, CPE-SLDI</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Instability index</td>
+                                    <td>1</td>
+                                    <td>CPE-SLDI</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">EIIP values</td>
+                                    <td>1</td>
+                                    <td>LncFinder</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">Secondary Structure</td>
+                                    <td>Minimum free energy (MFE)</td>
+                                    <td>1</td>
+                                    <td>lncRNA-MFDL</td>
+
+                                </tr>
+                                <tr>
+                                    <td>The number of paired bases</td>
+                                    <td>1</td>
+                                    <td>lncRNAnet</td>
+                                </tr>
+                                <tr>
+                                    <td>The number of unpaired bases</td>
+                                    <td>1</td>
+                                    <td>lncRNAnet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- ----Models------------------------------------------------------------- -->
+                <div id="models">
+                    <p class="mytitle" id="list-item-3" style="padding-top:4% ;">Models<br></p>
+                    <hr style="color:rgb(37, 64, 65);height:7px;width: 10em;margin: 0px;">
+                    <div class="table-responsive">
+                        <table class="table table-striped " style="word-break:break-all; word-wrap:break-all;"
+                            id="table1">
+                            <caption>The summary of computational methods used for the lncRNA prediction</summary>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Algorithm</th>
+                                    <th>Method</th>
+                                    <th>Description</th>
+                                    <th>Source code available</th>
+                                    <th>Input format</th>
+                                    <th>Training species</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="15">Binary classifier based</td>
+                                    <td rowspan="9">SVM</td>
+                                    <td>iSeeRNA</td>
+                                    <td>A lightweight SVM-based program to predict long intergenic noncoding RNAs
+                                        (lincRNAs)
+                                    </td>
+                                    <td>√</td>
+                                    <td>GTF, GFF, BED</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td>CNCI</td>
+                                    <td>A signature tool effectively analyzing adjacent nucleotide triads and
+                                        distinguishing
+                                        the
+                                        protein-coding and noncoding sequences independent of known annotations</td>
+                                    <td>√</td>
+                                    <td>FASTA, GTF</td>
+                                    <td>Human, plant</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://sourceforge.net/projects/plek/" target="_blank">PLEK</a></td>
+                                    <td>A predictor, which uses an improved computing pipeline based on k-mer and SVM to
+                                        distinguish
+                                        between lncRNAs and mRNAs</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human, maize</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://sourceforge.net/projects/lncrscansvm/"
+                                            target="_blank">LncRScan-SVM</a>
+                                    </td>
+                                    <td>An SVM-based method integrating characteristics from a genetic structure,
+                                        transcript
+                                        sequence, potential codon sequence and conservatism</td>
+                                    <td>√</td>
+                                    <td>GTF</td>
+                                    <td>Human</td>
+                                </tr>
+                                <tr>
+                                    <td>CPC</td>
+                                    <td> An SVM-based classifier, Coding Potential Calculator (CPC), predicting lncRNAs
+                                        based on six
+                                        sequence features</td>
+                                    <td>×</td>
+                                    <td>FASTA</td>
+                                    <td>Eukaryotic</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://cpc2.cbi.pku.edu.cn/" target="_blank">CPC2</a></td>
+                                    <td>A faster and more accurate version of CPC</td>
+                                    <td>√</td>
+                                    <td>FASTA, GTF</td>
+                                    <td>Human, mouse, fly,zebrafish</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://github.com/hugowschneider/longdist.py"
+                                            target="_blank">Longdist</a>
+                                    </td>
+                                    <td>An SVM-based approach using the 1st ORF relative length and frequencies of
+                                        nucleotide
+                                        patterns selected by PCA as features</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human, mouse, zebrafish</td>
+                                </tr>
+                                <tr>
+                                    <td><a href=" http://www.rnabinding.com/CPPred" target="_blank">CPPred</a></td>
+                                    <td>A method using the SVM algorithm and multiple sequence features to predict
+                                        lncRNAs
+                                    </td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td><a href=" https://bigd.big.ac.cn/lgc" target="_blank">LGC</a></td>
+                                    <td>An algorithm to predict lncRNAs in a wide range of species based on the
+                                        relationship
+                                        between
+                                        ORF length and GC content</td>
+                                    <td>√</td>
+                                    <td>FASTA, BED, GTF</td>
+                                    <td>Human, plant</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">LR</td>
+                                    <td><a href="http://lilab.research.bcm.edu/cpat/" target="_blank">CPAT</a></td>
+                                    <td>A nonalignment method is based on a logical regression model by extracting
+                                        sequence
+                                        characteristics</td>
+                                    <td>√</td>
+                                    <td>FASTA, BED</td>
+                                    <td>Human, mouse, fly,zebrafish</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://lilab.research.bcm.edu/cpat/" target="_blank">lncScore</a></td>
+                                    <td> An alignment-free tool using a logistic regression model with 11 selected
+                                        features
+                                    </td>
+                                    <td>√</td>
+                                    <td>GTF, GFF</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">RF</td>
+                                    <td><a href="https://github.com/WGLab/lncScore" target="_blank"> LncRNA-ID</a></td>
+                                    <td>An identification method based on Random Forest and three features including
+                                        ORF,
+                                        ribosome
+                                        interaction and protein conservation</td>
+                                    <td>√</td>
+                                    <td>FSATA, BED</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://github.com/zhangy72/LncRNA-ID" target="_blank">LncRNApred</a>
+                                    </td>
+                                    <td>A method to differentiate between lncRNAs and protein-coding transcripts based
+                                        on RF
+                                    </td>
+                                    <td>×</td>
+                                    <td>FASTA</td>
+                                    <td>Human</td>
+                                </tr>
+                                <tr>
+                                    <td>FEELnc</td>
+                                    <td>An RF-based method providing a standardized and detailed protocol for
+                                        identifying
+                                        and
+                                        annotating lncRNAs</td>
+                                    <td>√</td>
+                                    <td>GTF</td>
+                                    <td> Human, mouse, dog</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://github.com/tderrien/FEELnc" target="_blank">COME</a></td>
+                                    <td>A tool for calculating the coding potential based on a balanced random forest
+                                        model
+                                    </td>
+                                    <td>√</td>
+                                    <td>GTF</td>
+                                    <td>Human, mouse, fly, worm, plant</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="5">Deep learning based</td>
+                                    <td>DSN</td>
+                                    <td><a href="https://github.com/lulab/COME" target="_blank">lncRNA-MFDL</a></td>
+                                    <td>A DSN-based classifier using multiple features</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human</td>
+                                </tr>
+                                <tr>
+                                    <td>DNN</td>
+                                    <td><a href="http://compgenomics.utsa.edu/lncRNA_MDFL/" target="_blank">DeepLNC</a>
+                                    </td>
+                                    <td>A method based on Shannon entropy and DNN</td>
+                                    <td>×</td>
+                                    <td>FASTA</td>
+                                    <td>Human</td>
+                                </tr>
+                                <tr>
+                                    <td>RNN</td>
+                                    <td>mRNN</td>
+                                    <td>A gated RNN-based method which can interpret context and long-range information
+                                        dependencies
+                                    </td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human</td>
+                                </tr>
+                                <tr>
+                                    <td>RNN, CNN</td>
+                                    <td><a href="https://github.com/hendrixlab/mRNN" target="_blank">lncRNAnet</a></td>
+                                    <td>A deep learning method using RNN to learn the intrinsic behavior of lncRNAs and
+                                        CNN
+                                        to
+                                        detect stop codons to obtain an ORF indicator</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td>DBN, DNN</td>
+                                    <td><a href="http://data.snu.ac.kr/pub/lncRNAnet" target="_blank">LncADeep</a></td>
+                                    <td>An identification tool using both DBN and DNN</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">Ensemble learning based</td>
+                                    <td rowspan="4">Ensemble Learning</td>
+                                    <td><a href="http://cqb.pku.edu.cn/ZhuLab/lncadeep/" target="_blank">lncFinder</a>
+                                    </td>
+                                    <td>An integrated lncRNA identification package that constructed classifiers based
+                                        on
+                                        different
+                                        categories of features and various machine learning algorithms</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human, mouse, wheat</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://bmbl.sdstate.edu/lncfinder/" target="_blank">PredLnc-GFStack</a>
+                                    </td>
+                                    <td>An identification tool based on a combination of genetic algorithm and stacked
+                                        ensemble
+                                        learning</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://github.com/BioMedicalBigDataMiningLab/PredLncGFStack/"
+                                            target="_blank">LncPred-IEL</a></td>
+                                    <td> An lncRNA prediction method using iterative ensemble learning</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td> Human, mouse</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://github.com/BioMedicalBigDataMiningLab/LncPredIEL"
+                                            target="_blank">CPE-SLDI</a></td>
+                                    <td>A coding potential estimation approach using oversampling technology to solve
+                                        the
+                                        local data
+                                        imbalance</td>
+                                    <td>√</td>
+                                    <td>FASTA</td>
+                                    <td>Human</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="guide">
+
+        <hr>
+        <p> <a href="/details#database" class="linktext">Databases</a></p>
+        <p>
+            <a href="/details#features" class="linktext">Features</a>
+        </p>
+        <p>
+            <a href="/details#models" class="linktext">Models</a>
+        </p>
+    </div> -->
+
+    <!-- ----database------------------------------------------------------------- -->
+
+    <footer></footer>
+
+</body>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script type="text/javascript">
+    $('footer').load("{% static 'footer.html' %}");
+</script>
+
+</html>

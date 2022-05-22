@@ -1,0 +1,15 @@
+选择模型：PredLnc-GFStack
+选择物种：Human
+一共23条预测数据。
+文件格式正确，开始预测。
+[INFO] Getting all features from transcripts...
+[INFO] Done!
+[INFO] Predicting...
+[INFO] Done!
+[INFO] Saving labels...
+[INFO] Finish!
+The total transcripts:23
+The number of lncRNAs:20
+The proportion of lncRNAs:86.957%
+The number of pcRNAs:3
+The proportion of pcRNAs:13.043%

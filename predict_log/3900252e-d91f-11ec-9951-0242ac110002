@@ -1,0 +1,11 @@
+选择模型：LncADeep
+选择物种：Human
+一共52条预测数据。
+文件格式正确，开始预测。
+python2 LncADeep.py -f /mnt/xxr/predpackage/inputfiles/3900252e-d91f-11ec-9951-0242ac110002 -o res -s 
+/mnt/xxr/predpackage/models/lncadeep/data/3900252e-d91f-11ec-9951-0242ac110002_LncADeep_lncRNA_results
+The total transcripts:52
+The number of lncRNAs:48
+The proportion of lncRNAs:92.308%
+The number of pcRNAs:4
+The proportion of pcRNAs:7.692%

@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>predlncrna.cn</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="lncrna, prediction, identification, mechine learning">
+    <meta name="description" content="A web for predicting long non-coding RNAs">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="shortcut icon" href="{%static 'image/predlncrna.ico' %}" />
+    <style type="text/css">
+        /* # try */
+        /*添加鼠标移入图片效果*/
+        .imgPreview {
+            z-index: 999;
+            display: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            /*容器占满整个屏幕*/
+            height: 100%;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.822);
+        }
+
+        .imgPreview img {
+            z-index: 100;
+            width: 80%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /*添加鼠标移入图片效果*/
+        .myimg {
+            cursor: url("{% static '/image/fangda.ico' %}"),
+            auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航 ------ ---- ---- ---- ---- ---- ---- ---- ---->
+
+    <nav class="navbar navbar-expand-md navbar-dark">
+
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="/static/image/logo.png" class="img-responsive" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- home ------ ---- ---- ---- -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+
+                <!-- run ------ ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link" href="/run">Run</a>
+                </li>
+
+                <!-- details ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Details</a>
+                    <div class="dropdown-menu mydropdown">
+                        <a href="/details#database" class="dropdown-item">Database</a>
+                        <a href="/details#features" class="dropdown-item ">Features</a>
+                        <a href="/details#models" class="dropdown-item ">Models</a>
+                    </div>
+                </li>
+                <!-- help ------ ---- ---- ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-font" href="/help">Help</a>
+                </li>
+                <!-- about ---- ---- ---- ---- --->
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 介绍大图 -->
+    <div class="row justify-content-between" style="padding:0">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <img class="img-fluid" src="/static/image/imgintro.jpg" alt="introimg">
+            <div class="mypage" style="padding: 3%;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-family: 'Times New Roman', Times; line-height: 1.5; font-size: large;">
+                            With the development of high-throughput sequencing technology, numerous genomic transcript
+                            data
+                            have
+                            been
+                            discovered,
+                            which promotes the study of genomics, especially the human
+                            genome. However, it is worth noting that >90% of the transcripts
+                            in the human genome are not encoded into proteins, well
+                            known as noncoding RNAs (ncRNAs). Long noncoding RNAs,(long ncRNAs or lncRNAs) are a class
+                            of
+                            ncRNAs
+                            with
+                            >200 nucleotides in length.<br>
+                            According to the regions that lncRNAs are located and transcribed from, lncRNAs can be
+                            divided
+                            into
+                            four
+                            major categories: intergenic lncRNAs (those transcribed from intergenic regions), intronic
+                            lncRNAs
+                            (those
+                            transcribed entirely from introns of
+                            protein-coding genes), sense lncRNAs (those transcribed from the sense strand of
+                            protein-coding
+                            genes)
+                            and
+                            antisense lncRNAs(those transcribed from the antisense strand
+                            of protein-coding genes). According to effects exerted on DNA sequences, lncRNAs can be
+                            classified
+                            into
+                            two classes:
+                            cis-lncRNAs that regulate the expression of genes in close genomic proximity and
+                            translncRNAs
+                            that
+                            regulate
+                            the expression of distant
+                            genes.<br>
+                            LncRNAs had been supposed to have no biological func- tions because they could not encode
+                            proteins.
+                            However, recent advances found that lncRNAs perform important functions in various
+                            biological
+                            processes. For instance, lncRNAs participate in transcription, splicing, translation,
+                            protein
+                            localization, cellular structure integrity, imprinting, cell cycle and apopto- sis,
+                            stem
+                            cell pluripotency and reprogramming, and heat shock response. Some of the abnormally
+                            expressed
+                            lncRNAs are widely distributed in tumor tissue, involving tumors of various systems. For
+                            example, an
+                            lncRNA named the Transcribed-Ultra Conserved Regions is found to have dramatically changed
+                            based
+                            expression levels in both pediatric neuroblastoma and chronic lymphocytic leukemia of
+                            adults.
+                            Some lncRNAs can lead to overgrowth of cells by interfering with apoptosis, and thus cause
+                            tumors.<br>
+                            LncRNA prediction is the prerequisite for studying and under- standing biogenesis and
+                            functions
+                            of
+                            lncRNAs. However, dis- criminating lncRNAs from protein-coding RNAs is challenging because
+                            lncRNAs
+                            share many features similar to protein-coding RNAs. Moreover, in vivo experiments for lncRNA
+                            prediction are usually time consuming and expensive.<br>
+                            In the last decade, the researchers collected lncRNAs from RefSeq, Ensembl Genomes, GENCODE,
+                            etc.,
+                            and built several lncRNA datasets. These databases not only provide coding and noncoding
+                            transcripts, but also provide extended genomic information, which is likewise pragmatic in
+                            the
+                            field
+                            of lncRNA prediction and make it possible to develop the computational methods and help the
+                            further
+                            investigation.<br>
+                        </p>
+                        <p style="font-family: 'Times New Roman', Times; line-height: 1.5; font-size: large;">
+                            To facilitate the lncRNA prediction, the researchers consider many features that can
+                            differentiate
+                            the coding and noncoding sequences, and these features are classified into six classes:
+                            codon-related features, open reading frame (ORF)-related fea- tures, guanine–cytosine
+                            (GC)-related
+                            features, coding sequence- related features, transcript-related features and structure-
+                            related
+                            features. In this light, many computational methods have been developed for predicting
+                            lncRNAs,
+                            and
+                            they utilize different features and different machine learning techniques to build
+                            prediction
+                            models. These computational methods are classified into three classes:<br></p>
+                    </div>
+                    <div class="col-md-6">
+
+                        <ul style="font-family: 'Times New Roman', Times; line-height: 1.5; font-size: large;">
+                            <li>Binary classifier-based methods: This category of methods utilizes traditional machine
+                                learning
+                                classifiers to identify lncRNAs. The researchers used statistical features of lncR- NAs
+                                and
+                                used
+                                classifiers such as support vector machine (SVM), random forest (RF) and logic
+                                regression
+                                (LR)
+                                to
+                                build the prediction models.</li>
+                            <li>Deep learning-based methods: This category of methods make use of deep learning
+                                techniques
+                                to
+                                identify lncRNAs. Deep learning is an advanced and popular class of machine learning
+                                techniques,
+                                demonstrating outstanding performance in computer vision and natural language processing
+                                .
+                                Deep
+                                learning can help to automatically extract features from lncRNAs and boost the lncRNA
+                                prediction,
+                                and thus several deep learning-based lncRNA prediction methods, such as LncADeep
+                                and
+                                lncRNAnet
+                                , have been developed.</li>
+                            <li>
+                                Ensemble learning-based methods: This category of methods adopt ensemble learning
+                                techniques
+                                to
+                                build prediction models and identify lncRNAs. Ensemble learning is a class of strategies
+                                that
+                                combine several submodels to construct an overall prediction model. It is noteworthy
+                                that
+                                ensemble
+                                learning also can be used to integrate different features or datasets. Ensemble learning
+                                is
+                                proved
+                                to improve the generalization performance of the lncRNA prediction. For example,
+                                PredLnc-GFStack
+                                integrates different features and uses them to train various classifiers, taking the
+                                average
+                                score of all classifiers as the final prediction.
+                            </li>
+                        </ul>
+                        <img src="https://predlncrna.oss-cn-shanghai.aliyuncs.com/feature"
+                            style="max-width:100%; height:auto;" class="img-responsive" alt="briefintro">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    <!-- <div>
+        {{ single_article }}
+    </div> -->
+    <footer></footer>
+
+
+
+
+
+</body>
+
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/web.js' %}"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.myimg').on('click', function () {
+            var src = $(this).attr('src');
+            $('.imgPreview img').attr('src', src);
+            $('.imgPreview').show()
+        });
+        $('.imgPreview').on('click', function () {
+            $('.imgPreview').hide()
+        });
+    })
+</script>
+
+
+</html>

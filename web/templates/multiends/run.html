@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}" type="text/css">
+    <link rel="shortcut icon" href="{%static 'image/predlncrna.ico' %}" />
+    <title>predlncrna.cn</title>
+</head>
+
+
+<body>
+    <!-- 导航 -->
+    <!-- 导航 -->
+    <!-- 导航 ------ ---- ---- ---- ---- ---- ---- ---- ---->
+    <div>
+        <nav class="navbar navbar-fixed-top navbar-expand-md bg-nav navbar-dark">
+
+            <a class="navbar-brand" href="#">
+                <img id="logo" src="/static/image/logo.png" class="img-responsive" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <!-- home ------ ---- ---- ---- -->
+                    <li class="nav-item">
+                        <a class="nav-link nav-font " href="/">Home</a>
+                    </li>
+
+                    <!-- run ------ ---- ---- ---- --->
+                    <li class="nav-item">
+                        <a class="nav-link nav-font active" href="/run">Run</a>
+                    </li>
+
+                    <!-- details ------ ---- ---- ---->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link nav-font dropdown-toggle" data-bs-toggle="dropdown">Details</a>
+                        <div class="dropdown-menu mydropdown">
+                            <a href="/details#database" class="dropdown-item">Database</a>
+                            <a href="/details#features" class="dropdown-item ">Features</a>
+                            <a href="/details#models" class="dropdown-item ">Models</a>
+                        </div>
+                    </li>
+                    <!-- help ------ ---- ---- ---->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-font" href="/help">Help</a>
+                    </li>
+                    <!-- about ---- ---- ---- ---- --->
+                    <li class="nav-item">
+                        <a class="nav-link nav-font" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row justify-content-between">
+            <div class="col-md-1"></div>
+            <div class="col-md-7" style="padding: 0;">
+                <div class="shadow mypage">
+                    <a style="text-decoration: none;" href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="Please ensure that the data is in fastA format before uploading"><mark
+                            style="color:#c27c88;">STEP 1:</mark></a>
+
+                    <!-- 单选框1:粘贴 -->
+                    <div class="form-check">
+
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="paste"
+                            id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <p>Input sequence(s) as fasta format:</p>
+                        </label>
+                        <textarea class="container-md" name="textarea_data" id="textarea_data" placeholder=">ENST00000606841.1|ENSG00000272411.1|OTTHUMG00000185601.1|OTTHUMT00000470813.1|AC116312.1-201|AC116312.1|314|CTGGTCCCTCAGATCCCCCTGCAGGGGCAGGAATGTCTGAGCCAGGGCATTGTTTCTGTGGAATCTTCCCACCAATGAATCTCCCAGCAGGACCAACTGTTTGGCTGTATTTAAACTGTCATTTAGCCAAGGCAGTTTGCTGGCACACCCAACTTCAACCCAGCAAGCACAACAGGTCTGCAGCTCGCGCCAAAGCTTGTTTAAACATCATTTGAACCAAACAGCCAGTCAATTTAAAAATACTCCAAGCCAAAAGCCAATGAGATTTGAAAACAAGAAAAACTGAAAATGAAAATAAAAGGGAAATATATGAA           
+                    "></textarea>
+                    </div>
+                    <!-- 单选框2:上传 -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="upload"
+                            id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            <p>Or upload fasta file (&lt10 MB) here:<b> (only support .fa file)</b></p>
+                        </label>
+                        <br>
+                        <input type="file" name="inputfile" accept=".fa" id="xFile">
+                    </div>
+                    <hr>
+
+                    <p id="step4"><mark style="color:#c27c88">STEP 4:</mark>Get results:</p>
+
+                    <!-- <form action="/home/downloadf/" method="post" enctype="multipart/form-data">
+                        {% csrf_token %} -->
+                    <div style="padding: 10px 20px;">
+                        <span>Task ID:</span>
+                        <input type="text" name="getid" placeholder="请输入生成ID" style="width: 50%;" value="{{ taskid }}">
+                        <button class="btn btn-secondary" name="show_result" id="showresbtn">
+                            Show Result
+                        </button>
+                        <button class="btn" name="show_log" id="showlogbtn">
+                            Show Log
+                        </button>
+                    </div>
+                    <div style="padding: 10px;">
+                        <textarea class="container-md" id="outputframe" name="outputframe">{{ outputframe }}</textarea>
+                        <button class="btn btn-secondary" type="submit" name="download" id="downloadbtn">
+                            <img src="/static/image/run/download.png" style="max-width:20px; height:auto;"
+                                class="img-responsive " alt="background">
+                            Download file
+                        </button>
+                    </div>
+                    <!-- </form> -->
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="shadow mypage">
+                    <p><mark style="color:#c27c88;">STEP 2:
+                        </mark> Select Models:</p>
+                    <!-- -------------- 选择模型--------------  -->
+                    <!-- <select class="form-select" aria-label="Default select example" name="select_models"
+                        id="select_models"> -->
+                    <!-- <option>Select models</option> -->
+                    <select class="form-control" aria-label="Default select example" name="select_models"
+                        id="select_models">
+                        <option>Unselected</option>
+                        <option>CNCI</option>
+                        <option>CPC2</option>
+                        <option>lgc</option>
+                        <option>PLEK</option>
+                        <option>CPAT</option>
+                        <option>CPPred</option>
+                        <option>PredLnc-GFStack</option>
+                        <option>LncADeep</option>
+                        <option>DeepCPP</option>
+                    </select>
+                    <hr>
+                    <p><mark style="color:#c27c88;">STEP 3:</mark>Select Spieces:</p>
+                    <!-- -------------- 选择物种--------------  -->
+                    <select class="form-control" aria-label="Default select example" name="select_spieces"
+                        id="select_spieces">
+                        <option>Unselected</option>
+                    </select>
+                    <hr>
+                    <div>
+                        <div class="btnBox" style="padding:10px 20px;">
+                            <!---------------- beginpredict按钮 ------------------>
+                            <button type="submit" class=" shadow" data-bs-toggle="modal" data-bs-target="#myModal"
+                                id="btnpredict" name="btnpredict">
+                                <img src="/static/image/run/beginpredict.png" style="max-width:17%; height:auto;"
+                                    class="img-responsive " alt="background">
+                                Predict!
+                            </button>
+                            <!-- reset按钮 -->
+                            <button type="submit" class=" shadow-md" id="resetbtn" name="resetbtn">
+                                <img src="/static/image/run/reset.png" style="max-width:17%; height:auto;"
+                                    class="img-responsive " alt="background">
+                                reset</button>
+                        </div>
+
+                        <label style="color:blue">{{ uploadmassage }}</label>
+
+                        <div style="margin-top: 20px;">
+                            Task ID:
+                            <div id="showtaskid">
+                                <div class="row justify-content-between">
+                                    <div class="col-md-9">
+                                        <label id="uid">
+                                            {{ uid }}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span type="submit" class=" shadow-md" id="copyid" onclick="copy()"
+                                            data-clipboard-text="">
+                                            <img src="/static/image/run/copy.png" style="max-width:36px; height:auto;"
+                                                class="img-responsive " alt="background"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            History Task ID:
+                            <div id="showhistoryuid">
+                                {{ history_uid|linebreaksbr }}
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <p><mark style=" color:#c27c88"><b>The running time and accuracy of prediction by each model:
+                            </b></mark></p>
+                    <!-- <canvas id="runctx" height="2000%"></canvas> -->
+                    <table class="table table-striped " id="table1">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Running time</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CNCI</td>
+                                <td>47.415s</td>
+
+                            </tr>
+                            <tr>
+                                <td>PLEK</td>
+                                <td>4.026s</td>
+
+                            </tr>
+                            <tr>
+                                <td>CPC2</td>
+                                <td> 0.261 s</td>
+
+                            </tr>
+                            <tr>
+                                <td>CPPred</td>
+                                <td> 5.741 s</td>
+
+                            </tr>
+                            <tr>
+                                <td>lgc</td>
+                                <td> 0.217 s</td>
+
+                            </tr>
+                            <tr>
+                                <td>CPAT</td>
+                                <td>0.377 s</td>
+
+                            </tr>
+                            <tr>
+                                <td>LncADeep</td>
+                                <td style="color:#c27c88">180.950 s</td>
+
+                            </tr>
+                            <tr>
+                                <td>GFStack</td>
+                                <td> 23.278 s</td>
+
+                            </tr>
+                            <tr>
+                                <td>DeepCPP</td>
+                                <td style="color:#c27c88"> 95.738 s</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>The test dataset included 100 human ncRNAs and 100 human coding RNAs from <a
+                            href="http://www.rnabinding.com/CPPred/" target="_blank">CPPred datasets.</a></p>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </form>
+
+    <footer></footer>
+</body>
+
+<script type=" text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- <script src="{% static 'js/bootstrap.min.js' %}"></script> -->
+
+<script type="text/javascript">
+    $('footer').load("{% static 'footer.html' %}");
+</script>
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
+
+
+<script type=" text/javascript" src="{% static 'js/web.js' %}"></script>
+
+</html>

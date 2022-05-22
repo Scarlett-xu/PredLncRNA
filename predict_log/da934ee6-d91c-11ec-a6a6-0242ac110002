@@ -1,0 +1,45 @@
+选择模型：PLEK
+无物种选择
+一共52条预测数据。
+文件格式正确，开始预测。
+python2 /mnt/xxr/predpackage/models/plek/PLEK.py -fasta da934ee6-d91c-11ec-a6a6-0242ac110002 -out /mnt/xxr/predpackage/result/ -thread 12 -isoutmsg 1
+Change the format of the input fasta file ... 
+   /mnt/xxr/predpackage/inputfiles/da934ee6-d91c-11ec-a6a6-0242ac110002, row id: 0
+   Total lines: 1344
+   Sequence count: 52
+
+Check the format of input fasta file ... 
+   Total lines: 104 
+   Sequence count: 52
+
+Remove sequences whose lengths are not more than minlength  ... 
+	52 sequences.
+   Total lines: 104 
+   Sequence count: 52
+
+Split define lines and nucleotide lines ... 
+   /mnt/xxr/predpackage/result/da934ee6-d91c-11ec-a6a6-0242ac110002_pos_1row_200, row index: 0
+   Total lines: 104
+   Sequence count: 52
+
+Nucleotides to upper case ... 
+   Total lines: 52
+
+
+Calculating k-mer usage frequencies ... 
+   /mnt/xxr/predpackage/result/da934ee6-d91c-11ec-a6a6-0242ac110002_pos_svm, row index: 0
+   Total lines: 52
+
+[2022-05-21 23:44:17] Beginning PLEK run (Version 1.2) 
+[2022-05-21 23:44:17] PLEK is running
+[2022-05-21 23:44:17] Calculating k-mer usage
+[2022-05-21 23:44:17] Scaling data
+[2022-05-21 23:44:17] Predicting
+[2022-05-21 23:44:21] Run complete
+	Result file: /mnt/xxr/predpackage/result/da934ee6-d91c-11ec-a6a6-0242ac110002
+	Coding: 2/52=3.84615384615%, Non-coding: 50/52=96.1538461538%
+The total transcripts:52
+The number of lncRNAs:50
+The proportion of lncRNAs:96.154%
+The number of pcRNAs:2
+The proportion of pcRNAs:3.846%
