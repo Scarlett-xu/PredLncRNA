@@ -21,7 +21,7 @@ PredlncRNA网站主要基于Django框架，部署在docker容器上。网站的�
 2. 选择模型和物种参数点击预测，复制生成的TaskID；
 3. 根据TaskID获取预测的原始结果和分析参考数据。
 
-<img src="https://xxrpict.oss-cn-shanghai.aliyuncs.com/img/202205230012493.png"  width="1000px" alt="image-20220523001221458">
+<img src="https://xxrpict.oss-cn-shanghai.aliyuncs.com/img/202205230012493.png"  width="500px" alt="image-20220523001221458">
 
 ### 3. 核心特性
 
