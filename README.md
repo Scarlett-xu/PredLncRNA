@@ -3,7 +3,7 @@
 [![Author](https://xxrpict.oss-cn-shanghai.aliyuncs.com/img/202205230008706.svg "Author")](https://gitee.com/scarlettdeer "Author")
 ![v2.0](https://xxrpict.oss-cn-shanghai.aliyuncs.com/img/202205230008789.svg "v2.0")
 
-#### PredLncRNA是一个综合文献抓取、数据集模型汇总、九种工具预测并分析结果的lncRNA开发平台。
+#### PredLncRNA是一个综合文献抓取、数据集模型汇总、九种工具预测并分析结果的lncRNA开发平台。直达链接：http://predlncrna.cn
 
 ### 1. 设计理念
 
@@ -20,8 +20,6 @@ PredlncRNA网站主要基于Django框架，部署在docker容器上。网站的�
 1. 上传或粘贴数据集；
 2. 选择模型和物种参数点击预测，复制生成的TaskID；
 3. 根据TaskID获取预测的原始结果和分析参考数据。
-
-<img src="https://xxrpict.oss-cn-shanghai.aliyuncs.com/img/202205230012493.png">
 
 
 ### 3. 核心特性
